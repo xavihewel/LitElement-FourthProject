@@ -11,11 +11,14 @@ class EitSwitch extends LitElement {
     constructor() {
         super();
         this.checked = false;
+        this.addEventListener('click', () => {
+            this.checked = !this.checked;
+        })
     }
 
     render() {
         return html`
-        <span @click="${this.doClick}">
+        <span>
             ${this.checked
             ? this.checkedIcon
             : this.unCheckedIcon
