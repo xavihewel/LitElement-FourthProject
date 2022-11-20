@@ -11,6 +11,10 @@ class MenuOverlay extends LitElement {
   constructor() {
     super();
     this.closed = true;
+    document.addEventListener('click', () => {
+        console.log('event document per tancar');
+        this.closed = true;
+    })
   }
 
   static get styles() {
@@ -59,7 +63,8 @@ class MenuOverlay extends LitElement {
     `;
   }
 
-  toggle() {
+  toggle(e) {
+    e.stopPropagation();
     this.closed = ! this.closed;
     console.log('closed esta a', this.closed);
   }
